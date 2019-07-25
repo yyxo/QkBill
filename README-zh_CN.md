@@ -12,7 +12,7 @@
 支持 QuarkBlockChain, ETH 上的所有加密资产。
 </div>
 
-![bg](./images/bg.png)
+![bg](./images/bgsmall.png)
 
 [English](./README.md) | [简体中文](./README-zh_CN.md)
 
