@@ -16,7 +16,7 @@
 
 	<body>
 		
-		<nav class="mui-bar mui-bar-tab app-bar has-bottombar bottom-menu-fixed">
+		<nav class="mui-bar mui-bar-tab app-bar has-bottombar bottom-menu-fixed" id="bar-tab">
 			<a id="defaultTab" class="mui-tab-item mui-active" href="tab-subpage-index.html">
 				<span class="mui-icon icon iconfont icon-integral_fill"></span>
 			</a>
@@ -48,6 +48,15 @@
 			
 			 //创建子页面，首个选项卡页面显示，其它均隐藏；
 			mui.plusReady(function() {
+				
+				user_device = plus.device.model;
+				bottom = "51px";
+				
+				if(user_device == "iPhoneXSMax" || user_device == "iPhoneX" || user_device == "iPhoneXS" || user_device == "iPHoneXR")
+				{
+					document.getElementById("bar-tab").style.paddingBottom = "20px";
+					bottom = "60px";
+				}
 				
 				var self = plus.webview.currentWebview();
 				for (var i = 0; i < 3; i++) {

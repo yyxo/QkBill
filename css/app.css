@@ -799,14 +799,12 @@ html{
 	word-break:break-all;
 }
 .verify-password-box{
-	width: 100%;
-	border-top-right-radius: 1.2rem;
-	border-top-left-radius: 1.2rem;
-	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 0;
+	width: 90%;
+	border-radius: 1.2rem;
 	background: #FFFFFF;
 	padding: 2rem;
-	bottom: 0;
+	left: 5%;
+	top: 30%;
 }
 .verify-password-box .title{
 	text-align: center;
@@ -913,6 +911,7 @@ html{
 	background: #FFFFFF;
 	box-shadow:none;
 	padding: 2rem 3%;
+	margin-bottom: 3rem;
 }
 .button-bar p{
 	text-align: center;
@@ -1088,6 +1087,10 @@ html{
 	width: 20%;
 	margin: 0 auto;
 }
+.block-brower .qrcode canvas{
+	width: 20%;
+	margin: 0 auto;
+}
 .block-brower p{
 	margin-top: 1rem;
 	color: #303030;
@@ -1204,9 +1207,9 @@ html{
 	-webkit-box-shadow:5px 6px 20px 0px #ababab;
 	box-shadow:5px 6px 20px 0px #ababab;
 }
-.manage-wallet-page .mui-backdrop,.wallet-inner-page .mui-backdrop{
+/* .manage-wallet-page .mui-backdrop,.wallet-inner-page .mui-backdrop{
 	background: none !important;
-}
+} */
 .wallet-inner-popover{
 	width: 10rem;
 	background: none;
