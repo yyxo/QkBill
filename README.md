@@ -13,7 +13,7 @@ Support Quarkblockchain and Ethereum
 
 </div>
 
-![bg](./images/bg.png)
+![bg](./images/bgsmall.png)
 
 [English](./README.md) | [简体中文](./README-zh_CN.md)
 
