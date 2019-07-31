@@ -3,8 +3,8 @@
     "id" : "H5D84AD73", /*必选，应用的标识*/
     "name" : "QkBill", /*必选，应用名称*/
     "version" : {
-        "name" : "1.1.5", /*必选，版本名称*/
-        "code" : 114
+        "name" : "1.1.6", /*必选，版本名称*/
+        "code" : 116
     },
     "description" : "", /*可选，应用描述信息*/
     "icons" : {
@@ -835,8 +835,24 @@
                 "examples/tabbar-labels-only.html",
                 "js/mui.listpicker.js",
                 "libs/easymob-webim-sdk/quickstart.md",
-                "js/mui.picker.all.js"
+                "js/mui.picker.all.js",
+                "images/bg.png"
             ]
         }
-    }
+    },
+	"unpackage" : [
+	    "css/icons-extra.css",
+	    "fonts/demo_fontclass.html",
+	    "fonts/demo_symbol.html",
+	    "fonts/demo_unicode.html",
+	    "fonts/iconfont.js",
+	    "fonts/iconfont.woff",
+	    "fonts/mui-icons-extra.ttf",
+	    "js/city.data-3.js",
+	    "js/city.data.js",
+	    "js/95516.js",
+	    ".idea",
+	    "README.md",
+		"images/bg.png"
+	]
 }
