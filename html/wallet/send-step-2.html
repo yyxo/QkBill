@@ -379,7 +379,7 @@
 				decimals = data;
 				var balance =  0;
 				
-				amount = accMul(send_amount,math.pow(10,decimals));
+				amount = accMul(send_amount,math.pow(10,decimals)) + "";
 			
 				contract.transfer(send_address, amount, {gasLimit: gasLimit,}).then(function (data) {
 					
