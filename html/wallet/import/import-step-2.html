@@ -40,7 +40,7 @@
 				<form class="mui-input-group">
 					<div class="mui-input-row item">
 						<p class="title">个人钱包ID</p>
-						<input type="text" id="wallet-name" placeholder="请输入6到20位字符,以字母开头">
+						<input type="text" id="wallet-name" placeholder="请输入2到20位字符,以字母开头">
 					</div>
 				</form>
 				
@@ -82,9 +82,9 @@
 				
 				
 				var wallet_name = document.getElementById("wallet-name").value;
-				if(wallet_name.length < 6 || wallet_name.length > 20)
+				if(wallet_name.length < 2 || wallet_name.length > 20)
 				{
-					mui.toast("钱包ID长度为6到20位");
+					mui.toast("钱包ID长度为2到20位");
 					return false;
 				}
 				
