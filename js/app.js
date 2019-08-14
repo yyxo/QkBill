@@ -771,7 +771,6 @@ function install_wgt(filename)
  */
 function updateEthAmount(address)
 {
-	console.log(getEthNodeHost())
 	var provider = new ethers.providers.JsonRpcProvider({"url":getEthNodeHost()});
 
 	provider.getBalance(address).then((balance) => {
@@ -781,7 +780,7 @@ function updateEthAmount(address)
 		assetsList = JSON.parse(assetsList);
 		for(var i in assetsList)
 		{
-			if(assetsList[i].assets_name == "ETH")
+			if(assetsList[i].assets_name == "ETH" && assetsList[i].main_chain == "ETH" )
 			{
 				assetsList[i].amount = etherString;
 			}
