@@ -62,12 +62,12 @@
 					其他
 				</div>
 				<ul class="mui-table-view menu">
-					<li class="mui-table-view-cell item">
+					<li class="mui-table-view-cell item" id="help-btn">
 						<a class="mui-navigate-right">
 							使用帮助
 						</a>
 					</li>
-					<li class="mui-table-view-cell item">
+					<li class="mui-table-view-cell item" id="about-btn">
 						<a class="mui-navigate-right">
 							关于我们
 						</a>
@@ -125,6 +125,38 @@
 			});
 			
 		})
+		
+		h("#help-btn").tap(function(){
+					
+			mui.openWindow({
+				url:"setting/help.html",
+				id:"help.html",
+				show:{
+					autoShow:true,//页面loaded事件发生后自动显示，默认为true
+					aniShow: 'slide-in-right'
+				},
+				waiting: {
+					autoShow: false
+				}
+			});
+			
+		})
+		
+		// h("#about-btn").tap(function(){
+		// 			
+		// 	mui.openWindow({
+		// 		url:"setting/about.html",
+		// 		id:"about.html",
+		// 		show:{
+		// 			autoShow:true,//页面loaded事件发生后自动显示，默认为true
+		// 			aniShow: 'slide-in-right'
+		// 		},
+		// 		waiting: {
+		// 			autoShow: false
+		// 		}
+		// 	});
+		// 	
+		// })
 		
 		mui.plusReady(function() {
 			

@@ -1267,3 +1267,23 @@ html{
 	color: #737373;
 	margin-top: 0.4rem;
 }
+/**
+ * 帮助中心
+ */
+.help-list{
+	padding: 1rem;
+}
+.help-list .item{
+	padding: 0.5rem 0;
+}
+.help-list .item h2{
+	font-size: 1.5rem;
+	font-weight: 500;
+	color: #444444;
+}
+.help-list .item p{
+	font-size: 1.4rem;
+	color: #444444;
+	margin: 0;
+	line-height: 2.2rem;
+}
