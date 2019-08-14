@@ -38,6 +38,18 @@ var commonAssetsList = [
 	{
 		'assets_name':'ETH',
 		'icon':"icon-yitaifang",
+		'description':"QKI token",
+		'is_main':0,
+		'main_chain':"QKI",
+		'amount':0,
+		'legal_money':0,
+		'price':0,
+		'address':'',
+		'token_address':'0x06fc17a46991d566bc55f4186b63cfdc28aed8d4'
+	},
+	{
+		'assets_name':'ETH',
+		'icon':"icon-yitaifang",
 		'description':"ETH",
 		'is_main':1,
 		'main_chain':"ETH",
