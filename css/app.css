@@ -1287,3 +1287,42 @@ html{
 	margin: 0;
 	line-height: 2.2rem;
 }
+/**
+ * 节点管理
+ */
+.node-list{
+	
+}
+.node-list:before,.node-list:after{
+	background: none;
+}
+.node-list .item:after{
+	right: 15px;
+	background: #f1f1f1 !important;
+}
+.mui-table-view-cell:last-child:after{
+	height: 1px;
+}
+.node-list .item{
+	font-size: 1.5rem;
+	color: #303030;
+	padding: 1.2rem 15px;
+	position: relative;
+}
+.node-list .item .name{
+	color: #303030;
+}
+.node-list .item .url{
+	font-size: 1.2rem;
+}
+.node-list .item .mui-active{
+	background: none !important;
+}
+.node-list .item .default-node{
+	padding-right: 20px;
+	color: #adadad;
+	font-size: 1.3rem;
+	position: absolute;
+	right: 1rem;
+	top: 1rem;
+}

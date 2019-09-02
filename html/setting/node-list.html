@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>quark-bill</title>
+		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,viewport-fit=cover,maximum-scale=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" href="../../css/app.css">
+		<link rel="stylesheet" href="../../fonts/iconfont.css">
+	</head>
+	<body>
+		
+		<header class="mui-bar mui-bar-nav app-header-1" id="header">
+			<a class="mui-action-back mui-icon icon iconfont icon-return mui-pull-left"></a>
+			<h1 class="mui-title">节点列表</h1>
+			<a class="mui-icon icon iconfont icon-add  mui-pull-right" id="add-node-btn"></a>
+		</header>
+		
+		<div class="mui-content" id="content">
+			
+			<div class="no-data-tip" id="no-data-tip" style="display: none;">
+				<span class="mui-icon icon iconfont icon-coupons"></span>
+				<p>暂无钱包</p>
+			</div>
+			
+			<ul class="mui-table-view node-list">
+				<li class="mui-table-view-cell item" v-on:tap="tapNode(item.url)" v-for="item in list">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red" v-on:tap="delNode(item.url)">删除</a>
+					</div>
+					<div class="mui-slider-handle">
+						<a class="mui-navigate-right">
+							<p class="name">{{item.node_name}}</p>
+							<p class="url">{{item.url}}</p>
+							<span class="mui-pull-right default-node" v-if="item.is_select == 1">默认</span>
+						</a>
+					</div>
+					
+				</li>
+			</ul>
+				
+		</div>
+			
+		
+	</body>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/immersed.js"></script>
+	<script src="../../js/h.min.js"></script>
+	<script src="../../js/vue.min.js"></script>
+	<script src="../../js/app.js"></script>
+	
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+
+		var node = [
+			{
+				'node_name':'中国节点',
+				'url':"http://hz.node.quarkblockchain.cn:20189",
+				'is_select':1,
+			},
+			{
+				'node_name':'新加坡节点',
+				'url':"http://sg.node.quarkblockchain.org:20189",
+				'is_select':0,
+			}
+		]
+		
+		mui.plusReady(function() {
+			
+			var nodeList = plus.storage.getItem('node-list');
+			
+			if(!nodeList)
+			{
+				nodeList = node;
+			}
+			else
+			{
+				nodeList = JSON.parse(nodeList);
+			}
+			
+			vm = new Vue({
+				el: '#content',
+				data: {
+					list:nodeList
+				},
+				methods: {
+					
+					tapNode: function (url) {
+						
+						var nodeList = plus.storage.getItem('node-list');
+						
+						if(!nodeList)
+						{
+							nodeList = node;
+						}
+						else
+						{
+							nodeList = JSON.parse(nodeList);
+						}
+						
+						for(var i in nodeList)
+						{
+							if(url == nodeList[i].url)
+							{
+								localStorage.setItem("node_host",url);
+								nodeList[i].is_select = 1;
+							}
+							else
+							{
+								nodeList[i].is_select = 0;
+							}
+						}
+						
+						this.list = nodeList;
+						plus.storage.setItem("node-list",JSON.stringify(nodeList));
+					},
+					delNode: function (url) {
+						
+						var btnArray = ['取消', '删除'];
+						mui.confirm('确定要删除该节点吗？', '提示', btnArray, function(e) {
+							
+							if (e.index == 1) {
+								
+								var nodeList = plus.storage.getItem('node-list');
+								
+								if(!nodeList)
+								{
+									nodeList = node;
+								}
+								else
+								{
+									nodeList = JSON.parse(nodeList);
+								}
+								
+								var is_select = 0;
+								for(var i in nodeList)
+								{
+									if(url == nodeList[i].url )
+									{
+										if(nodeList[i].is_select == 1)
+										{
+											is_select = 1;
+										}
+										nodeList.splice(i,1);
+									}
+								}
+								
+								if(is_select == 1)
+								{
+									for(var i in nodeList)
+									{
+										localStorage.setItem("node_host",nodeList[i].url);
+										nodeList[i].is_select = 1;
+										break;
+									}
+								}
+								
+								vm.list = nodeList;
+								plus.storage.setItem("node-list",JSON.stringify(nodeList));
+								mui.toast("删除成功");
+								
+							}
+							
+						})
+						
+					}
+				}
+			});
+			
+		})
+		
+		document.getElementById("add-node-btn").addEventListener("tap",function(){
+			
+			mui.openWindow({
+				url: "add-node.html",
+				id: "add-node.html",
+				show:{
+					autoShow:true,
+					aniShow:'slide-in-right',
+				},
+				waiting:{
+					autoShow:false,
+				}
+			});
+			
+		})
+		
+		document.addEventListener('fresh-node-list', function() {
+			
+			var nodeList = plus.storage.getItem('node-list');
+			
+			if(!nodeList)
+			{
+				nodeList = node;
+			}
+			else
+			{
+				nodeList = JSON.parse(nodeList);
+			}
+			
+			vm.list = nodeList;
+			
+		});
+
+	
+	</script>
+</html>

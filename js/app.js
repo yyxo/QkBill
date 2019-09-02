@@ -213,8 +213,9 @@ function getBalance()
 			}
 		);
 	}
+	//console.log("https://qkiscan.cn/api/get-balance?str="+JSON.stringify(str))
 
-	mui.ajax('https://new-block-browser.quarkblockchain.cn/api/get-balance',{
+	mui.ajax('https://qkiscan.cn/api/get-balance',{
 		data:{
 			str:JSON.stringify(str),
 			version:'1.1.2'

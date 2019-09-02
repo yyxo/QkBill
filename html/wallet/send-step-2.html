@@ -299,6 +299,8 @@
 				var provider = new ethers.providers.JsonRpcProvider({"url":getEthNodeHost()});
 			}
 			
+			console.log(getNodeHost());
+			
 			var privateKey = privateKey;
 			var wallet = new ethers.Wallet(privateKey, provider);
 		

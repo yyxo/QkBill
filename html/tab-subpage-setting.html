@@ -39,11 +39,6 @@
 					系统设置
 				</div>
 				<ul class="mui-table-view menu">
-					<!-- <li class="mui-table-view-cell item">
-						<a class="mui-navigate-right">
-							通用
-						</a>
-					</li> -->
 					<li class="mui-table-view-cell item" id="manage-wallet-btn">
 						<a class="mui-navigate-right">
 							钱包管理
@@ -52,6 +47,11 @@
 					<li class="mui-table-view-cell item" id="update-wallet-btn">
 						<a class="mui-navigate-right">
 							更新资产
+						</a>
+					</li>
+					<li class="mui-table-view-cell item" id="node-btn">
+						<a class="mui-navigate-right">
+							节点选择
 						</a>
 					</li>
 				</ul>
@@ -131,6 +131,22 @@
 			mui.openWindow({
 				url:"setting/help.html",
 				id:"help.html",
+				show:{
+					autoShow:true,//页面loaded事件发生后自动显示，默认为true
+					aniShow: 'slide-in-right'
+				},
+				waiting: {
+					autoShow: false
+				}
+			});
+			
+		})
+		
+		h("#node-btn").tap(function(){
+					
+			mui.openWindow({
+				url:"setting/node-list.html",
+				id:"node-list.html",
 				show:{
 					autoShow:true,//页面loaded事件发生后自动显示，默认为true
 					aniShow: 'slide-in-right'
