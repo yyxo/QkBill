@@ -51,7 +51,12 @@
 					</li>
 					<li class="mui-table-view-cell item" id="node-btn">
 						<a class="mui-navigate-right">
-							节点选择
+							QKI节点选择
+						</a>
+					</li>
+					<li class="mui-table-view-cell item" id="eth-node-btn">
+						<a class="mui-navigate-right">
+							ETH节点选择
 						</a>
 					</li>
 				</ul>
@@ -147,6 +152,22 @@
 			mui.openWindow({
 				url:"setting/node-list.html",
 				id:"node-list.html",
+				show:{
+					autoShow:true,//页面loaded事件发生后自动显示，默认为true
+					aniShow: 'slide-in-right'
+				},
+				waiting: {
+					autoShow: false
+				}
+			});
+			
+		})
+		
+		h("#eth-node-btn").tap(function(){
+					
+			mui.openWindow({
+				url:"setting/eth-node-list.html",
+				id:"eth-node-list.html",
 				show:{
 					autoShow:true,//页面loaded事件发生后自动显示，默认为true
 					aniShow: 'slide-in-right'
