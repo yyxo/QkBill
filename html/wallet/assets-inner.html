@@ -123,11 +123,18 @@
 					
 					blockBrowser: function (hash) {
 						
+						if(main_chain == "ETH")
+						{
+							mui.openWindow("https://etherscan.io/tx/"+hash);
+							return false;
+						}
+						
 						mui.openWindow({
 							url: "tx-info.html",
 							id: "tx-info.html",
 							extras:{
 								tx_hash:hash,
+								main_chain: main_chain,
 							},
 							show:{
 								autoShow:true,
