@@ -834,7 +834,7 @@ function updateEthTokenAmount(address,assets_name)
 	// 创建一个连接主网络的 provider
 	var eth_node_host = getEthNodeHost();
 	
-	if(url.substr(0,4) != "http")
+	if(eth_node_host.substr(0,4) != "http")
 	{
 		var eth_node_name = getEthNodeName(eth_node_host);
 		var provider = new ethers.providers.EtherscanProvider(eth_node_name,eth_node_host);
