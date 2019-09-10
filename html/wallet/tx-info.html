@@ -32,11 +32,14 @@
 		mui.plusReady(function() {
 			var self = plus.webview.currentWebview();
 			var hash = self.tx_hash;
-			var main_chain = slef.main_chain?main_chain:"QKI";
+			var main_chain = self.main_chain;
+		
 			if(main_chain == "QKI")
 			{
 				document.getElementById("about-iframe").src = "https://qkiscan.cn/tx/"+hash;
 			}else{
+				console.log("https://etherscan.io/tx/"+hash)
+				window.location.href = "https://etherscan.io/tx/"+hash;
 				document.getElementById("about-iframe").src = "https://etherscan.io/tx/"+hash;
 			}
 		});
